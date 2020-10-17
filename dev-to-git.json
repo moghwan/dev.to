@@ -3,5 +3,14 @@
     "id": 490648,
     "relativePathToArticle": "./blog-posts/3-laravel-with-laradock/3-laravel-with-laradock.md"
 
+  },
+  {
+    "id": 404268,
+    "relativePathToArticle": "./blog-posts/2-programming-in-linux/2-programming-in-linux.md"
+
+  },
+  {
+    "id": 373033,
+    "relativePathToArticle": "./blog-posts/1-prestashop-docker-compose/1-prestashop-docker-compose.md"
   }
 ]
