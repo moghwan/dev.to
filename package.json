@@ -2,7 +2,7 @@
   "name": "dev.to",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR-USERNAME/YOUR-REPO.git"
+    "url": "https://github.com/moghwan/dev.to.git"
   },
   "scripts": {
     "prettier": "prettier",
@@ -17,6 +17,7 @@
   "dependencies": {
     "dev-to-git": "1.1.0",
     "embedme": "1.11.0",
+    "minimist": "1.2.3",
     "prettier": "1.18.2"
   }
 }
