@@ -8,7 +8,7 @@ series:
 canonical_url:
 ---
 
-So basically I want to dockerize all my php based projects (Wordpress, Laravel, Symfony...) after switching from OS to another, and Prestashop was among them. 
+So basically I want to dockerize all my php based projects (Wordpress, Laravel, Symfony...) after switching from OS to another, and Prestashop was among them.
 
 So I'm writing this (my first) post so it will be a kind of reference for me in the future and I'll do the same for the others frameworks/CMSs.
 
@@ -24,7 +24,7 @@ The repo structure should look like this:
 ```
 docker-prestashop-boilerplate/
 ├── config/
-│   └── presta.conf
+│ └── presta.conf
 ├── .env
 ├── docker-compose-ps.yml
 ├── Dockerfile
@@ -32,19 +32,19 @@ docker-prestashop-boilerplate/
 └── README.md
 ```
 
-Let me explain and show you files' content: 
+Let me explain and show you files' content:
 
 **config/presta.conf**: a config file for apache enabling virtual host
 
 ```
 <VirtualHost *:80>
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-    <Directory /var/www/html >
-        AllowOverride All
-    </Directory>
+  ServerAdmin webmaster@localhost
+  DocumentRoot /var/www/html
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+  <Directory /var/www/html>
+    AllowOverride All
+  </Directory>
 </VirtualHost>
 ```
 
@@ -61,39 +61,39 @@ It’s preferable to change it to your project name so we can avoid the collisio
 ```
 version: '2'
 services:
- 
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: prestashop
-    volumes:
-      - ./.docker/data/mysql/:/var/lib/mysql
-      - ./.docker/logs/mysql/:/var/log/mysql
-    ports:
-      - "3306:3306"
-  
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      -  8080:80
-    env_file:
-      - .env
-    environment:
-      PMA_HOST: mysql
-      VIRTUAL_HOST: phpmyadmin.test  
-  
-  app_dev:
-    build: .
-    environment:
-      - VIRTUAL_HOST=prestashop.test
-    volumes : 
-      - ./:/var/www/html:rw
-    restart: always
-    ports:
-      - 80:80
-    links:
-      - "mysql"
+
+mysql:
+image: mysql:5.7
+environment:
+MYSQL_ROOT_PASSWORD: root
+MYSQL_DATABASE: prestashop
+volumes:
+- ./.docker/data/mysql/:/var/lib/mysql
+- ./.docker/logs/mysql/:/var/log/mysql
+ports:
+- "3306:3306"
+
+phpmyadmin:
+image: phpmyadmin/phpmyadmin
+ports:
+- 8080:80
+env_file:
+- .env
+environment:
+PMA_HOST: mysql
+VIRTUAL_HOST: phpmyadmin.test
+
+app_dev:
+build: .
+environment:
+- VIRTUAL_HOST=prestashop.test
+volumes :
+- ./:/var/www/html:rw
+restart: always
+ports:
+- 80:80
+links:
+- "mysql"
 ```
 
 **Dockerfile**: our docker image.
@@ -182,13 +182,13 @@ If the database connection is failed (happened to me in another setup) you can c
 
 ```
 docker exec -ti prestadock_mysql_1 bash
-    chown -R mysql:mysql /var/lib/mysql
-    mysql -u root -p
-    # password: root
-    CREATE USER 'ps_user'@'%' IDENTIFIED BY 'user';
-    GRANT ALL ON *.* TO 'ps_user'@'%';
-    FLUSH PRIVILEGES;
-    EXIT;
+chown -R mysql:mysql /var/lib/mysql
+mysql -u root -p
+# password: root
+CREATE USER 'ps_user'@'%' IDENTIFIED BY 'user';
+GRANT ALL ON *.* TO 'ps_user'@'%';
+FLUSH PRIVILEGES;
+EXIT;
 exit
 ```
 
@@ -229,9 +229,7 @@ so much zeros :o
 And voilà!
 
 ## Conclusion
-This Docker Compose Prestashop boilerplate was created to be able to jump from standard X/M/LAMP stack, mainly for my case, avoiding the hassle to install/configure local webserver after every OS switch (special thanks to linux :)). 
+This Docker Compose Prestashop boilerplate was created to be able to jump from standard X/M/LAMP stack, mainly for my case, avoiding the hassle to install/configure local webserver after every OS switch (special thanks to linux :)).
 
 ##Found a Typo?
 Just let me know in the comments. Hope you found this article helpful!
-
-

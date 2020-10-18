@@ -12,9 +12,9 @@ canonical_url:
 
 Hello there. To begin with, this post isn’t about what’s the best OS for everyday programming, it could depend on the stack used, Misc programs and specially YOU, so i’ll try to describe all the good/bad things that happened during my everyday workflows.
 
-But before that I should let you know my programming stack so you won't get confused later. I mainly use: 
+But before that I should let you know my programming stack so you won't get confused later. I mainly use:
 1. PHP frameworks and CMS
-1. nodejs frameworks for frontend 
+1. nodejs frameworks for frontend
 1. react native/ionic for mobile dev
 1. Photoshop (with CssHat) for HTML Integration, banner for mobile apps.
 1. ms office due to my current job.[1]
@@ -42,9 +42,9 @@ In the meantime I played with some linux distros in VMs and made the choice: Man
 
 ## Manjaro:
 
-“You said you hated KDE right?” well yes but for a cause, one I didn’t want to bring back the Gnome memories i had with Ubuntu and second, I disliked is because its similarity in UI compared to Windows in general, 10 specially then I found how very customizable was and again i’ll resume it with one line: “everything is a widget”. So in term of UI I made my [simple comfortable setup](https://www.reddit.com/r/unixporn/comments/hs64as/). 
+“You said you hated KDE right?” well yes but for a cause, one I didn’t want to bring back the Gnome memories i had with Ubuntu and second, I disliked is because its similarity in UI compared to Windows in general, 10 specially then I found how very customizable was and again i’ll resume it with one line: “everything is a widget”. So in term of UI I made my [simple comfortable setup](https://www.reddit.com/r/unixporn/comments/hs64as/).
 
-Now in term of programs and workflow I still use PhpStorm for my php and nodejs projects, npm and yarn installed globally and surprisingly npm run very fast compared to windows and mac; git already installed, but for my php projects I migrate all of them to docker with docker compose, majority of projects were based on Laravel, Prestashop, Wordpress and old native php apps. I managed to dockerize some of them from scratch, some with Laradock. 
+Now in term of programs and workflow I still use PhpStorm for my php and nodejs projects, npm and yarn installed globally and surprisingly npm run very fast compared to windows and mac; git already installed, but for my php projects I migrate all of them to docker with docker compose, majority of projects were based on Laravel, Prestashop, Wordpress and old native php apps. I managed to dockerize some of them from scratch, some with Laradock.
 
 Java/.Net: RIP.
 

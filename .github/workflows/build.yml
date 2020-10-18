@@ -16,9 +16,6 @@ jobs:
       - name: Install Dependencies
         uses: bahmutov/npm-install@v1
 
-      - name: Run Prettier
-        run: yarn run prettier:check
-
       - name: Run Embedme
         run: yarn run embedme:check
 
