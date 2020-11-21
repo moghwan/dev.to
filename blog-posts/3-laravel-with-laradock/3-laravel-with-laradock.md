@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "Dockerize your Laravel project with Laradock"
 cover_image:
 description:
