@@ -97,7 +97,6 @@ docker-compose up -d --build nginx mysql
 docker-compose up -d --build nginx postgres
 ```
 
-[gif dial nifario f twitter waiting docker compose build]()
 Now go prepare another cup of coffee. I'm serious here.
 
 After build is finished you'll see your containers created. Navigate with your browser to [laraveldock.test](laraveldock.test), you should see your homepage.
