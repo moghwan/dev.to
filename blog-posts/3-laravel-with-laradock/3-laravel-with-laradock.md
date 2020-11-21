@@ -8,7 +8,7 @@ series:
 canonical_url:
 ---
 
-Hello dear artisans! Todays post I'll try to share my laravel/laradick workflow while using Nginx, and exploring/setting-up two database engines: postgres/mysql, alongside pgadmin, phpmyadmin or adminer, depending your choice.
+Hello dear artisans! Todays post I'll try to share my laravel/laradock workflow while using Nginx, and exploring/setting-up two database engines: postgres/mysql, alongside pgadmin, phpmyadmin or adminer, depending your choice.
 
 I'll try to do some extra steps and explain why, and I'll be boring too. I warned you!
 
