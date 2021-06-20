@@ -15,7 +15,7 @@
     "dev-to-git": "dev-to-git"
   },
   "dependencies": {
-    "dev-to-git": "1.1.0",
+    "dev-to-git": "^1.4.1",
     "embedme": "1.11.0",
     "minimist": "1.2.3",
     "prettier": "1.18.2"
