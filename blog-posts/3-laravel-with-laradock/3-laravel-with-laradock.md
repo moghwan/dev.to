@@ -226,6 +226,6 @@ docker-compose up -d nginx pgadmin
 
 And voilà!
 
-If you have any recommendation, improvment, found a typo just let me in the comments or fork [this project](github.com/moghwan/dev.to) and make your edits, any contibution is welcome.
+If you have any recommendation, improvement, found a typo just let me know the comments or fork [this project](github.com/moghwan/dev.to) and make your edits, any contribution is welcome.
 
 Hope you found this article helpful!
