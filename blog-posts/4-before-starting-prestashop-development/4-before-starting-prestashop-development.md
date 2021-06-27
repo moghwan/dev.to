@@ -25,7 +25,9 @@ The classes that you are able to override are all classes insides `classes`, `co
 To take effect of your changes you should either clear your cache folder, or just deletig the `class_index.php` file which is a simple map of the different classes with their overrides.
 
 For example:
-``` php
+```php
+// code/ProductController.php
+
 <?php
 # controllers/front/ProductController.php
 use PrestaShop\PrestaShop\Adapter\Image\ImageRetriever;
@@ -33,17 +35,20 @@ use PrestaShop\PrestaShop\Adapter\Image\ImageRetriever;
 
 class ProductControllerCore extends ProductPresentingFrontControllerCore
 {
-  
-    public function anyFunction()
-    {
-      // function shouldn't be private or it won't work
-      
-      return 'parent value';
-    }
+
+  public function anyFunction()
+  {
+    // function shouldn't be private or it won't work
+
+    return 'parent value';
+  }
+
 }
 ```
 Let's override the class and redifine any public/protected method:
-``` php
+```php
+// code/ProductController-override.php
+
 <?php
 # overrides/controllers/front/ProductController.php
 
@@ -52,9 +57,9 @@ class ProductController extends ProductControllerCore
 
   public function anyFunction()
   {
-      // use parent::anyFunction() to get parent class value
+    // use parent::anyFunction() to get parent class value
 
-      return 'new value';
+    return 'new value';
   }
 }
 ```
@@ -94,7 +99,9 @@ A prestashop installation is just a serie of updates executing one after another
 
 # some things you should know
 - Any global parameter, rather it's proper to prestashop or to a module, can be stored and fetched or deleted with these methods:
-``` php
+```php
+// code/configuration.php
+
 Configuration::updateValue('YOUR_UNIQUE_PARAM_NAME', 'new value');
 
 Configuration::get('YOUR_UNIQUE_PARAM_NAME');
@@ -104,9 +111,18 @@ Configuration::deleteByName('YOUR_UNIQUE_PARAM_NAME');
 - Get any input value by name, sent in GET, POST or Ajax:
 Tools::getValue('input_name') 
 Context has many useful properties filled with data depending on, the current state, the context! here's some examples:
-``` php
+```php
+// code/context.php
+```
+- Global variable are prefixed with `_PS_` and defined in `config/defines.inc.php`
+
+- making a simple ajax call:
+
+```php
+// code/ajax/display.php
+
 // returns the id of the current used language.
-$this->context->language->id; 
+$this->context->language->id;
 
 // assign variables from current controller to the view
 $this->context->smarty->assign([
@@ -116,36 +132,16 @@ $this->context->smarty->assign([
 // the view
 return $this->display(__FILE__, 'views/templates/admin/someadminhook.tpl');
 
-// fetching the rendered content of a view, 
+// fetching the rendered content of a view,
 $this->context->smarty->fetch('module:your_module_dir_name/views/templates/front/display.tpl')
 
 // get current cart
 $this->context->cart;
 ```
-- Global variable are prefixed with `_PS_` and defined in `config/defines.inc.php`
 
-- making a simple ajax call:
+```js
+// code/ajax/front.js
 
-``` php
-# my_module/controllers/front/display.php
-
-// making the request url for our contoller in initContent() function
-$url = Context::getContext()->link->getModuleLink(
-    'my_module', // module name
-    'ajax', // contoller name, could be 'display'
-    array( // we can define more parameters here
-        // 'action' => 'DoSomeAction',
-        // 'ajax' => 1,
-    )
-);
-
-// making variable accessible in javascript
-Media::addJsDef([
-    'AJAX_URL' => $url,
-]);
-```
-
-``` js
 // preparing the ajax call inside a function
 function getProductsByCategoryJs(categoryId) {
   $.ajax({
@@ -167,30 +163,27 @@ function getProductsByCategoryJs(categoryId) {
       },
   });
 }
+
 ```
-``` php
-# my_module/controllers/front/ajax.php
+```php
+// code/ajax/ajax.php
 
-public function displayAjaxGetProductsByCategoryPhp()
-{
-  $categoryId = Tools::getValue('categoryId');
+# my_module/controllers/front/display.php
 
-  $products = Product::getProducts($this->context->language->id, null, null, 'id_product', 'DESC', $categoryId);
+// making the request url for our contoller in initContent() function
+$url = Context::getContext()->link->getModuleLink(
+    'my_module', // module name
+    'ajax', // contoller name, could be 'display'
+    array( // we can define more parameters here
+        // 'action' => 'DoSomeAction',
+        // 'ajax' => 1,
+    )
+);
 
-  $this->context->smarty->assign(
-      [
-          'products'=>$products,
-      ]
-  );
-  
-  die(
-      Tools::jsonEncode(
-          [
-              'ajaxTpl' => $this->context->smarty->fetch('module:your_module/views/templates/front/ajax/productslist.tpl')
-          ]
-      )
-  );
-}
+// making variable accessible in javascript
+Media::addJsDef([
+    'AJAX_URL' => $url,
+]);
 ```
 
 # free modules in prestashop addons cost

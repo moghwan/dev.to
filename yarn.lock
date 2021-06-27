@@ -107,7 +107,7 @@
   "resolved" "https://registry.npmjs.org/duplexer3/-/duplexer3-0.1.4.tgz"
   "version" "0.1.4"
 
-"embedme@1.11.0":
+"embedme@^1.11.0":
   "integrity" "sha512-m5ywGngWOz74abc2uInIltnZzZ/Uo9iCOwih4weV+7pK/4y07GHygqwYsG0GqWE41q0erlFghphLwEHX1PdbcQ=="
   "resolved" "https://registry.npmjs.org/embedme/-/embedme-1.11.0.tgz"
   "version" "1.11.0"
