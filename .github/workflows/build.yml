@@ -16,8 +16,8 @@ jobs:
       - name: Install Dependencies
         uses: bahmutov/npm-install@v1
 
-      - name: Run Embedme
-        run: yarn run embedme:check
+      # - name: Run Embedme
+        # run: yarn run embedme:check
 
       - name: Deploy to dev.to
         run: DEV_TO_GIT_TOKEN=${{ secrets.DEV_TO_GIT_TOKEN }} yarn run dev-to-git
